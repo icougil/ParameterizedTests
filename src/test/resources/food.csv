@@ -1,0 +1,10 @@
+FRUIT, true
+LEGUME, true
+NUT, true
+SALT, false
+SATURATED_FAT, false
+SUGAR, false
+TRANS_FAT, false
+UNSATURATED_FAT, true
+VEGETABLE, true
+WHOLE_GRAIN, true
