@@ -34,7 +34,7 @@ public class Junit4ParameterizedFoodShould {
 		'{1}'	  for the 2nd parameter
 		etc
 	*/
-	@Parameterized.Parameters(name = "{index}: product {0} is healthy? {1}")
+	@Parameterized.Parameters(name = "{index}: food {0} is healthy? {1}")
 	public static Collection<Object[]> parameters() {
 		return Arrays.asList(new Object[][]{
 				{Food.FRUIT, true},
@@ -51,7 +51,7 @@ public class Junit4ParameterizedFoodShould {
 	}
 
 	@Test
-	public void recognize_which_products_are_healthy() {
+	public void recognize_which_food_is_healthy() {
 		assertThat(food.isHealthy()).isEqualTo(isHealthy);
 	}
 

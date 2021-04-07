@@ -21,7 +21,7 @@ public class PragmatistsParameterizedFoodShould {
 	@Test
 	@Parameters(method = "parameters")
 	@TestCaseName("{method} - [{index}] - {params}")
-	public void recognize_which_products_are_healthy(Food food, boolean isHealthy) {
+	public void recognize_which_food_is_healthy(Food food, boolean isHealthy) {
 		assertThat(food.isHealthy()).isEqualTo(isHealthy);
 	}
 
@@ -43,7 +43,7 @@ public class PragmatistsParameterizedFoodShould {
 	//region We can use a method explicitly (it has to start with "provide")
 	@Test
 	@Parameters(source = PragmatistsParameterizedFoodShould.class)
-	public void recognize_which_products_are_healthy_with_a_provider(Food food, boolean isHealthy) {
+	public void recognize_which_food_is_healthy_with_a_provider(Food food, boolean isHealthy) {
 		assertThat(food.isHealthy()).isEqualTo(isHealthy);
 	}
 
@@ -66,7 +66,7 @@ public class PragmatistsParameterizedFoodShould {
 			"VEGETABLE, true",
 			"WHOLE_GRAIN, true"
 	})
-	public void recognize_which_products_are_healthy_with_enum_names(Food food, boolean isHealthy) {
+	public void recognize_which_food_is_healthy_with_enum_names(Food food, boolean isHealthy) {
 		assertThat(food.isHealthy()).isEqualTo(isHealthy);
 	}
 	//endregion
@@ -81,7 +81,7 @@ public class PragmatistsParameterizedFoodShould {
 			"VEGETABLE",
 			"WHOLE GRAIN"
 	})
-	public void recognize_which_products_are_healthy_with_a_converter(@Param(converter = HealthyFoodConverter.class) Food food) {
+	public void recognize_which_food_is_healthy_with_a_converter(@Param(converter = HealthyFoodConverter.class) Food food) {
 		assertThat(food.isHealthy()).isTrue();
 	}
 
@@ -105,7 +105,7 @@ public class PragmatistsParameterizedFoodShould {
 	//region It is easy to use CSV files that can be parsed and used as parameters
 	@Test
 	@FileParameters("classpath:food.csv")
-	public void recognize_which_products_are_healthy_reading_from_csv(Food food, boolean isHealthy) {
+	public void recognize_which_food_is_healthy_reading_from_csv(Food food, boolean isHealthy) {
 		assertThat(food.isHealthy()).isEqualTo(isHealthy);
 	}
 	//endregion
