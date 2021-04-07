@@ -11,8 +11,29 @@ repositories {
 }
 
 dependencies {
-	testImplementation 'junit:junit:4.13.2'
-	testCompile 'org.assertj:assertj-core:3.18.1'
-	testCompile 'org.mockito:mockito-core:3.7.0'
 	testCompile 'pl.pragmatists:JUnitParams:1.1.1'
+
+	def junit5Version = '5.7.1'
+	def junit4version = '4.13.2'
+	def mockitoVersion = '3.7.0'
+	def assertJVersion = '3.18.1'
+	def pragmatistsVersion = '1.1.1'
+
+	testImplementation "junit:junit:$junit4version"
+	testImplementation platform("org.junit:junit-bom:$junit5Version")
+
+	testRuntime "org.junit.platform:junit-platform-launcher"
+	testRuntime "org.junit.vintage:junit-vintage-engine" //	'allow JUnit 3 and JUnit 4 tests to run'
+
+	testImplementation "org.junit.jupiter:junit-jupiter"
+	testCompile "org.junit.jupiter:junit-jupiter-params"
+
+	testCompile "pl.pragmatists:JUnitParams:$pragmatistsVersion"
+	testCompile "org.mockito:mockito-core:$mockitoVersion"
+	testCompile "org.mockito:mockito-junit-jupiter:$mockitoVersion"
+	testCompile "org.assertj:assertj-core:$assertJVersion"
+}
+
+test {
+	useJUnitPlatform()
 }
