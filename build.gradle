@@ -11,13 +11,7 @@ repositories {
 }
 
 dependencies {
-	testCompile 'pl.pragmatists:JUnitParams:1.1.1'
-
-	def junit5Version = '5.7.1'
-	def junit4version = '4.13.2'
-	def mockitoVersion = '3.7.0'
-	def assertJVersion = '3.18.1'
-	def pragmatistsVersion = '1.1.1'
+	testCompile "pl.pragmatists:JUnitParams:$pragmatistsVersion"
 
 	testImplementation "junit:junit:$junit4version"
 	testImplementation platform("org.junit:junit-bom:$junit5Version")
